@@ -47,6 +47,18 @@ function useToggle({
     )
   }, [hasOnChange, onIsControlled, readonly])
 
+  const {current: onWasControlled} = React.useRef(onIsControlled)
+  React.useEffect(() => {
+    warning(
+      !(!onIsControlled && onWasControlled),
+      'A component is changing a controlled input to be uncontrolled.',
+    )
+    warning(
+      !(onIsControlled && !onWasControlled),
+      'A component is changing a uncontrolled input to be controlled.',
+    )
+  }, [onIsControlled, onWasControlled])
+
   function dispatchWithOnChange(action) {
     // Avoid unecessary renders by checking if on prop is controlled
     if (!onIsControlled) {
@@ -96,6 +108,7 @@ function Toggle({on: controlledOn, onChange, readonly}) {
 
 function App() {
   const [bothOn, setBothOn] = React.useState(false)
+  const [singleOn, setSingleOn] = React.useState()
   const [timesClicked, setTimesClicked] = React.useState(0)
 
   function handleToggleChange(state, action) {
@@ -114,8 +127,9 @@ function App() {
   return (
     <div>
       <div>
-        <Toggle on={bothOn} readonly />
         <Toggle on={bothOn} onChange={handleToggleChange} />
+        <Toggle on={bothOn} onChange={handleToggleChange} />
+        <button onClick={() => setBothOn()}>Make controlled</button>
       </div>
       {timesClicked > 4 ? (
         <div data-testid="notice">
@@ -130,10 +144,12 @@ function App() {
       <div>
         <div>Uncontrolled Toggle:</div>
         <Toggle
-        // onChange={(...args) =>
-        //   console.info('Uncontrolled Toggle onChange', ...args)
-        // }
+          on={singleOn}
+          onChange={(...args) =>
+            console.info('Uncontrolled Toggle onChange', ...args)
+          }
         />
+        <button onClick={() => setSingleOn(true)}>Make controlled</button>
       </div>
     </div>
   )
