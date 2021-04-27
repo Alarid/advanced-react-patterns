@@ -1,3 +1,20 @@
+This is a fork of the workshop <a href="https://epicreact.dev/patterns">🤯
+Advanced React Patterns</a> from 🚀 EpicReact.Dev by
+[Kent C. Dodds](https://kentcdodds.com/). In this fork, I followed along the
+workshop exercises by working in the `src/exercise` folder, while elaborating on
+my learnings for each exercise in the associated markdown file.
+
+## Table of content
+
+1. [Context Module Functions](https://github.com/Alarid/advanced-react-patterns/blob/main/src/exercise/01.md)
+2. [Compound Components](https://github.com/Alarid/advanced-react-patterns/blob/main/src/exercise/02.md)
+3. [Flexible Compound Components](https://github.com/Alarid/advanced-react-patterns/blob/main/src/exercise/03.md)
+4. [Prop Collections and Getters](https://github.com/Alarid/advanced-react-patterns/blob/main/src/exercise/04.md)
+5. [State Reducer](https://github.com/Alarid/advanced-react-patterns/blob/main/src/exercise/05.md)
+6. [Control Props](https://github.com/Alarid/advanced-react-patterns/blob/main/src/exercise/06.md)
+
+---
+
 <div>
   <h1 align="center"><a href="https://epicreact.dev/patterns">🤯 Advanced React Patterns 🚀 EpicReact.Dev</a></h1>
   <strong>
